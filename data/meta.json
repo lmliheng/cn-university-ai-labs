@@ -1,0 +1,16 @@
+{
+ "generated_at": "2026-09-28 04:08",
+ "lab_count": 295,
+ "faculty_count": 2750,
+ "university_count": 73,
+ "lab_university_count": 60,
+ "field_counts": {
+  "人工智能": 142,
+  "计算机": 105,
+  "电子信息": 48
+ },
+ "sources": [
+  "各校院系官网「研究团队 / 实验室 / 师资」栏目页面（每条附来源链接）",
+  "CSrankings 公开数据集 github.com/emeryberger/CSrankings（按主页域名筛选中国内地高校）"
+ ]
+}

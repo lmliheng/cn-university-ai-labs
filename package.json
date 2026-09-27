@@ -1,0 +1,23 @@
+{
+  "name": "cn-univ-ai-labs",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "211/985 高校人工智能·计算机·电子信息课题组索引（Vue 3 + Vite）",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "node server.js",
+    "verify": "node test/verify.mjs",
+    "csv": "python3 scripts/export_csv.py"
+  },
+  "dependencies": {
+    "vue": "^3.5.43"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.9",
+    "jsdom": "^30.1.1",
+    "vite": "^8.3.1"
+  }
+}
