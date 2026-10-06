@@ -52,7 +52,7 @@ def parse_embedded_json(html, base_url):
         if tm:
             title = tm.group(1)
         direction = ""
-        for key in ("kxyj", "zszy", "yjfx", "fx"):
+        for key in ("kxyj", "zszy", "yjfx", "fx", "lx"):
             val = str(f.get(key, "") or "")
             dm = re.search(r"研究方向[：:]\s*(.+?)(?:\n|科研概况|研究课题|$)", val)
             if dm:
@@ -64,7 +64,10 @@ def parse_embedded_json(html, base_url):
                 if val:
                     direction = val[:200]
                     break
-        url = str(it.get("url", "") or "")
+        url = it.get("url", "")
+        if isinstance(url, dict):          # 部分校站把链接写成 {"asString": "http://…"}
+            url = url.get("asString", "")
+        url = str(url or "")
         out.append({
             "name": name,
             "title": title,

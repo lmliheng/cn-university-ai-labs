@@ -90,32 +90,6 @@
   "entry": "https://cse.seu.edu.cn/49354/list.htm"
  },
  {
-  "university": "中南大学",
-  "city": "长沙",
-  "tags": [
-   "985",
-   "211",
-   "双一流"
-  ],
-  "school": "自动化学院",
-  "root": "https://kxyjb.csu.edu.cn/",
-  "pages": [],
-  "status": "ok"
- },
- {
-  "university": "中南大学",
-  "city": "长沙",
-  "tags": [
-   "985",
-   "211",
-   "双一流"
-  ],
-  "school": "计算机学院",
-  "root": "https://kxyjb.csu.edu.cn/",
-  "pages": [],
-  "status": "ok"
- },
- {
   "university": "中国人民大学",
   "city": "北京",
   "tags": [
@@ -700,19 +674,6 @@
   ],
   "status": "ok",
   "entry": "https://cs.ccnu.edu.cn/szdw/zrjs.htm"
- },
- {
-  "university": "华中科技大学",
-  "city": "武汉",
-  "tags": [
-   "985",
-   "211",
-   "双一流"
-  ],
-  "school": "计算机科学与技术学院",
-  "root": "http://idc.hust.edu.cn/",
-  "pages": [],
-  "status": "ok"
  },
  {
   "university": "华北电力大学",
@@ -1489,19 +1450,6 @@
   "entry": "javascript:;"
  },
  {
-  "university": "武汉大学",
-  "city": "武汉",
-  "tags": [
-   "985",
-   "211",
-   "双一流"
-  ],
-  "school": "计算机学院",
-  "root": "http://mmnce.whu.edu.cn/",
-  "pages": [],
-  "status": "ok"
- },
- {
   "university": "武汉理工大学",
   "city": "武汉",
   "tags": [
@@ -1572,19 +1520,6 @@
   ],
   "status": "ok",
   "entry": "http://cies.hhu.edu.cn/jxky/list.htm"
- },
- {
-  "university": "浙江大学",
-  "city": "杭州",
-  "tags": [
-   "985",
-   "211",
-   "双一流"
-  ],
-  "school": "计算机科学与技术学院",
-  "root": "http://www.cs.zju.edu.cn/",
-  "pages": [],
-  "status": "ok"
  },
  {
   "university": "清华大学",
@@ -1960,5 +1895,747 @@
   ],
   "status": "ok",
   "entry": "https://www.cqu.edu.cn/jyjx/szdw/ysfc.htm"
+ },
+ {
+  "university": "中南大学",
+  "city": "长沙",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "计算机学院",
+  "root": "https://cse.csu.edu.cn/",
+  "pages": [
+   {
+    "url": "https://cse.csu.edu.cn/szdw/jsml.htm",
+    "hint": ""
+   }
+  ],
+  "status": "ok",
+  "entry": "https://cse.csu.edu.cn/szdw/jsml.htm"
+ },
+ {
+  "university": "中南大学",
+  "city": "长沙",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "数学与统计学院",
+  "root": "https://math.csu.edu.cn/",
+  "pages": [
+   {
+    "url": "https://math.csu.edu.cn/szdw.htm",
+    "hint": ""
+   },
+   {
+    "url": "https://math.csu.edu.cn/info/1804/13817.htm",
+    "hint": "",
+    "extra": true
+   }
+  ],
+  "status": "ok",
+  "entry": "https://math.csu.edu.cn/szdw.htm"
+ },
+ {
+  "university": "中南大学",
+  "city": "长沙",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "物理与电子学院",
+  "root": "https://wl.csu.edu.cn/",
+  "pages": [
+   {
+    "url": "https://wl.csu.edu.cn/xygk/szdw1.htm",
+    "hint": ""
+   }
+  ],
+  "status": "ok",
+  "entry": "https://wl.csu.edu.cn/xygk/szdw1.htm"
+ },
+ {
+  "university": "中南大学",
+  "city": "长沙",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "化学化工学院",
+  "root": "https://ccce.csu.edu.cn/",
+  "pages": [
+   {
+    "url": "https://ccce.csu.edu.cn/szdw.htm",
+    "hint": ""
+   }
+  ],
+  "status": "ok",
+  "entry": "https://ccce.csu.edu.cn/szdw.htm"
+ },
+ {
+  "university": "中南大学",
+  "city": "长沙",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "材料科学与工程学院",
+  "root": "https://smse.csu.edu.cn/",
+  "pages": [
+   {
+    "url": "https://smse.csu.edu.cn/szll.htm",
+    "hint": ""
+   }
+  ],
+  "status": "ok",
+  "entry": "https://smse.csu.edu.cn/szll.htm"
+ },
+ {
+  "university": "中南大学",
+  "city": "长沙",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "能源科学与工程学院",
+  "root": "https://energy.csu.edu.cn/",
+  "pages": [
+   {
+    "url": "https://energy.csu.edu.cn/szdw.htm",
+    "hint": ""
+   },
+   {
+    "url": "https://energy.csu.edu.cn/szdw/jsml.htm",
+    "hint": "",
+    "extra": true
+   },
+   {
+    "url": "https://energy.csu.edu.cn/szdw/jsfc.htm",
+    "hint": "",
+    "extra": true
+   }
+  ],
+  "status": "ok",
+  "entry": "https://energy.csu.edu.cn/szdw.htm"
+ },
+ {
+  "university": "上海交通大学",
+  "city": "上海",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "数学科学学院",
+  "root": "https://math.sjtu.edu.cn/",
+  "pages": [],
+  "status": "ok"
+ },
+ {
+  "university": "上海交通大学",
+  "city": "上海",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "化学化工学院",
+  "root": "https://scce.sjtu.edu.cn/",
+  "pages": [
+   {
+    "url": "https://scce.sjtu.edu.cn/szdw.html",
+    "hint": ""
+   },
+   {
+    "url": "https://scce.sjtu.edu.cn/teachers.html",
+    "hint": "",
+    "extra": true
+   },
+   {
+    "url": "https://scce.sjtu.edu.cn/user/jaccount_login.html",
+    "hint": "",
+    "extra": true
+   }
+  ],
+  "status": "ok",
+  "entry": "https://scce.sjtu.edu.cn/szdw.html"
+ },
+ {
+  "university": "上海交通大学",
+  "city": "上海",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "材料科学与工程学院",
+  "root": "https://smse.sjtu.edu.cn/",
+  "pages": [
+   {
+    "url": "https://smse.sjtu.edu.cn/people",
+    "hint": ""
+   },
+   {
+    "url": "https://smse.sjtu.edu.cn/people/staff_new/department",
+    "hint": "",
+    "extra": true
+   }
+  ],
+  "status": "ok",
+  "entry": "https://smse.sjtu.edu.cn/people"
+ },
+ {
+  "university": "上海交通大学",
+  "city": "上海",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "机械与动力工程学院",
+  "root": "https://me.sjtu.edu.cn/",
+  "pages": [
+   {
+    "url": "https://me.sjtu.edu.cn/szdw.html",
+    "hint": ""
+   },
+   {
+    "url": "https://me.sjtu.edu.cn/teacher_directory.html",
+    "hint": "",
+    "extra": true
+   }
+  ],
+  "status": "ok",
+  "entry": "https://me.sjtu.edu.cn/szdw.html"
+ },
+ {
+  "university": "复旦大学",
+  "city": "上海",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "数学科学学院",
+  "root": "https://math.fudan.edu.cn/",
+  "pages": [
+   {
+    "url": "http://math.fudan.edu.cn/jzyg/list.htm",
+    "hint": ""
+   },
+   {
+    "url": "https://math.fudan.edu.cn/30415/list.htm",
+    "hint": "",
+    "extra": true
+   }
+  ],
+  "status": "ok",
+  "entry": "http://math.fudan.edu.cn/jzyg/list.htm"
+ },
+ {
+  "university": "复旦大学",
+  "city": "上海",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "物理学系",
+  "root": "https://phys.fudan.edu.cn/",
+  "pages": [
+   {
+    "url": "https://phys.fudan.edu.cn/7476/list.htm",
+    "hint": ""
+   }
+  ],
+  "status": "ok",
+  "entry": "https://phys.fudan.edu.cn/7476/list.htm"
+ },
+ {
+  "university": "复旦大学",
+  "city": "上海",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "化学系",
+  "root": "https://chemistry.fudan.edu.cn/",
+  "pages": [
+   {
+    "url": "http://chemistry.fudan.edu.cn/45118/list.htm",
+    "hint": ""
+   }
+  ],
+  "status": "ok",
+  "entry": "http://chemistry.fudan.edu.cn/45118/list.htm"
+ },
+ {
+  "university": "南京大学",
+  "city": "南京",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "数学系",
+  "root": "https://math.nju.edu.cn/",
+  "pages": [],
+  "status": "ok"
+ },
+ {
+  "university": "南京大学",
+  "city": "南京",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "物理学院",
+  "root": "https://physics.nju.edu.cn/",
+  "pages": [],
+  "status": "ok"
+ },
+ {
+  "university": "南京大学",
+  "city": "南京",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "化学化工学院",
+  "root": "https://chem.nju.edu.cn/",
+  "pages": [
+   {
+    "url": "https://chem.nju.edu.cn/szll/list.htm",
+    "hint": ""
+   }
+  ],
+  "status": "ok",
+  "entry": "https://chem.nju.edu.cn/szll/list.htm"
+ },
+ {
+  "university": "浙江大学",
+  "city": "杭州",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "数学科学学院",
+  "root": "http://www.math.zju.edu.cn/",
+  "pages": [
+   {
+    "url": "http://www.math.zju.edu.cn/38065/list.htm",
+    "hint": ""
+   },
+   {
+    "url": "http://www.math.zju.edu.cn/38066/list.htm",
+    "hint": "",
+    "extra": true
+   }
+  ],
+  "status": "ok",
+  "entry": "http://www.math.zju.edu.cn/38065/list.htm"
+ },
+ {
+  "university": "中国科学技术大学",
+  "city": "合肥",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "数学科学学院",
+  "root": "https://math.ustc.edu.cn/",
+  "pages": [
+   {
+    "url": "https://math.ustc.edu.cn/szdw/list.htm",
+    "hint": ""
+   },
+   {
+    "url": "https://math.ustc.edu.cn/azcp/list.htm",
+    "hint": "",
+    "extra": true
+   }
+  ],
+  "status": "ok",
+  "entry": "https://math.ustc.edu.cn/szdw/list.htm"
+ },
+ {
+  "university": "中国科学技术大学",
+  "city": "合肥",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "物理学院",
+  "root": "https://physics.ustc.edu.cn/",
+  "pages": [
+   {
+    "url": "https://physics.ustc.edu.cn/",
+    "hint": ""
+   }
+  ],
+  "status": "ok",
+  "entry": "https://physics.ustc.edu.cn/"
+ },
+ {
+  "university": "武汉大学",
+  "city": "武汉",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "数学与统计学院",
+  "root": "https://maths.whu.edu.cn/",
+  "pages": [
+   {
+    "url": "https://maths.whu.edu.cn/teacher/zrjs.htm",
+    "hint": ""
+   }
+  ],
+  "status": "ok",
+  "entry": "https://maths.whu.edu.cn/teacher/zrjs.htm"
+ },
+ {
+  "university": "武汉大学",
+  "city": "武汉",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "物理科学与技术学院",
+  "root": "https://physics.whu.edu.cn/",
+  "pages": [
+   {
+    "url": "https://physics.whu.edu.cn/szdw/rcdw.htm",
+    "hint": ""
+   },
+   {
+    "url": "https://physics.whu.edu.cn/szdw/zrjs.htm",
+    "hint": "",
+    "extra": true
+   }
+  ],
+  "status": "ok",
+  "entry": "https://physics.whu.edu.cn/szdw/rcdw.htm"
+ },
+ {
+  "university": "华中科技大学",
+  "city": "武汉",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "数学与统计学院",
+  "root": "http://maths.hust.edu.cn/",
+  "pages": [
+   {
+    "url": "http://maths.hust.edu.cn/szdw/szdw.htm",
+    "hint": ""
+   }
+  ],
+  "status": "ok",
+  "entry": "http://maths.hust.edu.cn/szdw/szdw.htm"
+ },
+ {
+  "university": "华中科技大学",
+  "city": "武汉",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "物理学院",
+  "root": "http://phys.hust.edu.cn/",
+  "pages": [
+   {
+    "url": "http://phys.hust.edu.cn/szdw2/rygk.htm",
+    "hint": ""
+   },
+   {
+    "url": "http://phys.hust.edu.cn/szdw2/js.htm",
+    "hint": "教授"
+   },
+   {
+    "url": "http://phys.hust.edu.cn/szdw2/fjs.htm",
+    "hint": "副教授"
+   },
+   {
+    "url": "http://phys.hust.edu.cn/szdw2/yjy.htm",
+    "hint": "研究员"
+   },
+   {
+    "url": "http://phys.hust.edu.cn/szdw2/fyjy.htm",
+    "hint": "副研究员"
+   },
+   {
+    "url": "http://phys.hust.edu.cn/szdw2/zlyjy.htm",
+    "hint": "助理研究员"
+   },
+   {
+    "url": "http://phys.hust.edu.cn/szdw2/js1.htm",
+    "hint": "讲师"
+   }
+  ],
+  "status": "ok",
+  "entry": "http://phys.hust.edu.cn/szdw2/rygk.htm"
+ },
+ {
+  "university": "天津大学",
+  "city": "天津",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "数学学院",
+  "root": "http://math.tju.edu.cn/",
+  "pages": [
+   {
+    "url": "http://math.tju.edu.cn/szdw.htm",
+    "hint": ""
+   },
+   {
+    "url": "http://math.tju.edu.cn/szdw/jsdw.htm",
+    "hint": "",
+    "extra": true
+   }
+  ],
+  "status": "ok",
+  "entry": "http://math.tju.edu.cn/szdw.htm"
+ },
+ {
+  "university": "南开大学",
+  "city": "天津",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "数学科学学院",
+  "root": "https://math.nankai.edu.cn/",
+  "pages": [
+   {
+    "url": "https://math.nankai.edu.cn/szdw/list.htm",
+    "hint": ""
+   }
+  ],
+  "status": "ok",
+  "entry": "https://math.nankai.edu.cn/szdw/list.htm"
+ },
+ {
+  "university": "南开大学",
+  "city": "天津",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "物理科学学院",
+  "root": "https://physics.nankai.edu.cn/",
+  "pages": [
+   {
+    "url": "http://physics.nankai.edu.cn/527/list.htm",
+    "hint": ""
+   }
+  ],
+  "status": "ok",
+  "entry": "http://physics.nankai.edu.cn/527/list.htm"
+ },
+ {
+  "university": "西安交通大学",
+  "city": "西安",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "数学与统计学院",
+  "root": "http://math.xjtu.edu.cn/",
+  "pages": [
+   {
+    "url": "http://math.xjtu.edu.cn/szdw/zgkxyys.htm",
+    "hint": ""
+   },
+   {
+    "url": "http://math.xjtu.edu.cn/szdw/jsml.htm",
+    "hint": "",
+    "extra": true
+   }
+  ],
+  "status": "ok",
+  "entry": "http://math.xjtu.edu.cn/szdw/zgkxyys.htm"
+ },
+ {
+  "university": "哈尔滨工业大学",
+  "city": "哈尔滨",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "数学学院",
+  "root": "http://math.hit.edu.cn/",
+  "pages": [
+   {
+    "url": "http://math.hit.edu.cn/10223/list.htm",
+    "hint": ""
+   },
+   {
+    "url": "http://math.hit.edu.cn/js/list.htm",
+    "hint": "教授"
+   },
+   {
+    "url": "http://math.hit.edu.cn/fjs/list.htm",
+    "hint": "副教授"
+   },
+   {
+    "url": "http://math.hit.edu.cn/js_10510/list.htm",
+    "hint": "讲师"
+   }
+  ],
+  "status": "ok",
+  "entry": "http://math.hit.edu.cn/10223/list.htm"
+ },
+ {
+  "university": "同济大学",
+  "city": "上海",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "数学科学学院",
+  "root": "https://math.tongji.edu.cn/",
+  "pages": [
+   {
+    "url": "https://math.tongji.edu.cn/szdw2/ajys/dsysl.htm",
+    "hint": ""
+   },
+   {
+    "url": "https://math.tongji.edu.cn/szdw2/azc/js.htm",
+    "hint": "教授"
+   },
+   {
+    "url": "https://math.tongji.edu.cn/szdw2/azc/tpyjy.htm",
+    "hint": "特聘研究员"
+   },
+   {
+    "url": "https://math.tongji.edu.cn/szdw2/azc/yjy.htm",
+    "hint": "研究员"
+   },
+   {
+    "url": "https://math.tongji.edu.cn/szdw2/azc/zpfjs.htm",
+    "hint": "长聘副教授"
+   },
+   {
+    "url": "https://math.tongji.edu.cn/szdw2/azc/fjs.htm",
+    "hint": "副教授"
+   },
+   {
+    "url": "https://math.tongji.edu.cn/szdw2/azc/fyjy.htm",
+    "hint": "副研究员"
+   },
+   {
+    "url": "https://math.tongji.edu.cn/szdw2/azc/ypfjs.htm",
+    "hint": "预聘副教授"
+   },
+   {
+    "url": "https://math.tongji.edu.cn/szdw2/azc/zljs.htm",
+    "hint": "助理教授"
+   },
+   {
+    "url": "https://math.tongji.edu.cn/szdw2/azc/js1.htm",
+    "hint": "讲师"
+   }
+  ],
+  "status": "ok",
+  "entry": "https://math.tongji.edu.cn/szdw2/ajys/dsysl.htm"
+ },
+ {
+  "university": "东南大学",
+  "city": "南京",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "数学学院",
+  "root": "https://math.seu.edu.cn/",
+  "pages": [
+   {
+    "url": "https://math.seu.edu.cn/szdw/list.htm",
+    "hint": ""
+   },
+   {
+    "url": "https://math.seu.edu.cn/16357/list.htm",
+    "hint": "",
+    "extra": true
+   },
+   {
+    "url": "https://math.seu.edu.cn/jsfc/list.htm",
+    "hint": "",
+    "extra": true
+   }
+  ],
+  "status": "ok",
+  "entry": "https://math.seu.edu.cn/szdw/list.htm"
+ },
+ {
+  "university": "吉林大学",
+  "city": "长春",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "数学学院",
+  "root": "http://math.jlu.edu.cn/",
+  "pages": [
+   {
+    "url": "http://math.jlu.edu.cn/szdw1/jzyg1/jcsxx.htm",
+    "hint": ""
+   }
+  ],
+  "status": "ok",
+  "entry": "http://math.jlu.edu.cn/szdw1/jzyg1/jcsxx.htm"
+ },
+ {
+  "university": "湖南大学",
+  "city": "长沙",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "数学学院",
+  "root": "http://math.hnu.edu.cn/",
+  "pages": [
+   {
+    "url": "http://math.hnu.edu.cn/szdw.htm",
+    "hint": ""
+   },
+   {
+    "url": "http://math.hnu.edu.cn/szdw/szgk.htm",
+    "hint": "",
+    "extra": true
+   }
+  ],
+  "status": "ok",
+  "entry": "http://math.hnu.edu.cn/szdw.htm"
  }
 ]

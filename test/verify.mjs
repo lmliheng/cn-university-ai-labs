@@ -150,6 +150,21 @@ try {
   await click($$('.state .btn').find((b) => b.textContent.includes('重置')))
   check('重置后恢复全量', cards().length === faculty.length)
 
+  // 筛选：学科方向（理工科院系）
+  const discChip = (t) => chipRows().find((row) => row.some((c) => c.textContent.trim() === '数学'))
+    ?.find((c) => c.textContent.trim() === t)
+  const mathChip = discChip('数学')
+  check('提供「学科方向」筛选', Boolean(mathChip && chipRows().some((r) => r.some((c) => c.textContent.trim() === '物理'))))
+  if (mathChip) {
+    await click(mathChip)
+    const n = cards().length
+    check('按「数学」学科筛选生效', n > 0 && n < faculty.length, `${n} 条`)
+    check('筛选结果都属于数学类院系',
+      $$('.grid .card .meta').every((m) => /数学|统计/.test(m.textContent)), `${n} 张卡片`)
+    await click(discChip('全部'))
+    check('取消学科筛选后恢复全量', cards().length === faculty.length)
+  }
+
   // 按学校视图
   await click(tab('按学校'))
   await flush(6)

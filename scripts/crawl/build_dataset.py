@@ -52,6 +52,7 @@ BAD_NAME = ["学院", "大学", "中心", "实验", "研究所", "研究院", "�
             "组织", "职能", "历史", "沿革", "发展", "规划", "制度", "政策", "通知", "公告",
             "新闻", "会议", "讲座", "招聘", "下载", "字母", "师资", "名录", "人才", "党建",
             "学生", "联系", "关于", "简介", "分享", "搜索", "导航", "退休", "学者", "院士",
+            "性别", "姓名", "职务", "学历", "学位", "邮箱", "电话", "地址", "导师", "系所",
             "学习", "挖掘", "隐私", "师德", "正文", "简报", "指南", "办事", "季度", "风采",
             "掠影", "映像", "相册", "视频", "成员", "概况", "链接", "平台", "基地", "系所",
             "详细", "详情", "查看", "点击", "展开", "收起", "上一页", "下一页",
@@ -70,6 +71,32 @@ def normalize_rank(title):
 
 def clean(value):
     return re.sub(r"\s+", " ", (value or "")).strip()
+
+
+# 研究方向里混进来的导航/切换文字：削掉前缀，剩下若只是导航词就整段丢弃（不补写）
+DIR_NOISE = re.compile(r"^(更多|语种切换|其他栏目|首页|师资队伍|教师名录|列表|导航|登录|关闭|"
+                       r"上一篇|下一篇|点击|展开|收起|English|中文)[\s>·`﹥>»-]*")
+DIR_NAV_ONLY = re.compile(r"^(其他栏目|语种切换|English|更多|首页|师资队伍|教师名录|列表|导航|中文)"
+                          r"[\s>·`]*$")
+
+
+def clean_direction(value):
+    text = clean(value)
+    for _ in range(3):
+        stripped = DIR_NOISE.sub("", text).strip(" >·`-")
+        if stripped == text:
+            break
+        text = stripped
+    # 正文里混进的页脚/导航：在这些标记处截断
+    cut = len(text)
+    for marker in ("其他栏目", "语种切换", "首页 >", "首页>", "首页 首页", "中文 English", "首页 上页", "上页", "尾页"):
+        pos = text.find(marker)
+        if 0 <= pos < cut:
+            cut = pos
+    text = text[:cut].strip(" >·`-")
+    if not text or len(text) < 4 or DIR_NAV_ONLY.match(text):
+        return ""
+    return text
 
 
 def main():
@@ -92,7 +119,7 @@ def main():
             continue
         title = clean(p.get("title"))
         rank = normalize_rank(title)
-        direction = clean(p.get("direction"))
+        direction = clean_direction(p.get("direction"))
         if rank == "其他" and not direction:
             dropped["无职称且无方向"] += 1
             continue
@@ -100,7 +127,8 @@ def main():
             "university": uni,
             "city": UNIVERSITIES[uni]["city"],
             "tags": UNIVERSITIES[uni]["tags"],
-            "school": UNIVERSITIES[uni]["school"],
+            # 优先用该条记录自己的院系（同一所高校可能有多个院系），否则退回学校默认院系
+            "school": clean(p.get("school")) or UNIVERSITIES[uni]["school"],
             "name": name,
             "title": title,
             "rank": rank,

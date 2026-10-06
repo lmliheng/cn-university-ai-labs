@@ -5,6 +5,7 @@ const view = ref('faculty')        // faculty | schools
 const query = ref('')
 const rank = ref('全部')
 const tag = ref('全部')
+const discipline = ref('全部')
 const region = ref('全部')
 const school = ref('全部')
 const sortBy = ref('学校')
@@ -19,6 +20,29 @@ const errorMsg = ref('')
 const RANKS = ['全部', '教授', '副教授', '助理教授', '讲师', '研究员', '副研究员']
 const TAGS = ['全部', '985', '211', '双一流']
 const SORTS = ['学校', '职称', '姓名']
+const DISCIPLINE_ORDER = ['人工智能', '计算机', '电子信息', '自动化', '数学', '物理', '化学',
+                          '材料', '机械', '能源', '土木建筑', '生物医学', '其他理工']
+
+// 按院系名称归入学科方向（顺序即优先级）
+const DISCIPLINE_RULES = [
+  ['人工智能', /人工智能|智能/],
+  ['计算机', /计算机|软件|计算/],
+  ['电子信息', /电子|信息|通信|集成电路|微电子|光学工程/],
+  ['自动化', /自动化|控制|机器人/],
+  ['数学', /数学|统计/],
+  ['物理', /物理|天文|光学/],
+  ['化学', /化学|化工/],
+  ['材料', /材料/],
+  ['机械', /机械|动力|机电|航空|航天|力学/],
+  ['能源', /能源|电气|核|动力工程/],
+  ['土木建筑', /土木|建筑|交通|水利|测绘|环境/],
+  ['生物医学', /生物|医学|生命|药学/]
+]
+function disciplineOf(f) {
+  const text = f.school || ''
+  for (const [name, re] of DISCIPLINE_RULES) if (re.test(text)) return name
+  return '其他理工'
+}
 
 const REGION_MAP = {
   北京: '北京', 天津: '天津', 上海: '上海',
@@ -36,14 +60,20 @@ const allSchools = computed(() => {
   const map = new Map()
   for (const f of faculty.value) {
     if (!map.has(f.university)) {
-      map.set(f.university, { name: f.university, city: f.city, tags: f.tags || [], count: 0, orcid: 0, byRank: {} })
+      map.set(f.university, { name: f.university, city: f.city, tags: f.tags || [], count: 0, orcid: 0, byRank: {}, discs: new Set() })
     }
     const s = map.get(f.university)
     s.count++
     if (f.orcid) s.orcid++
+    s.discs.add(disciplineOf(f))
     s.byRank[f.rank] = (s.byRank[f.rank] || 0) + 1
   }
   return [...map.values()].sort((a, b) => a.name.localeCompare(b.name, 'zh-Hans-CN'))
+})
+
+const disciplines = computed(() => {
+  const present = new Set(faculty.value.map(disciplineOf))
+  return ['全部', ...DISCIPLINE_ORDER.filter((d) => present.has(d))]
 })
 
 const regions = computed(() => {
@@ -62,6 +92,7 @@ const schoolOptions = computed(() => {
 
 function matchesCommon(item) {
   if (tag.value !== '全部' && !(item.tags || []).includes(tag.value)) return false
+  if (discipline.value !== '全部' && disciplineOf(item) !== discipline.value) return false
   if (region.value !== '全部' && (REGION_MAP[item.city] || '其他') !== region.value) return false
   if (school.value !== '全部' && item.university !== school.value) return false
   return true
@@ -90,6 +121,7 @@ const filteredSchools = computed(() => {
     .filter((s) => tag.value === '全部' || (s.tags || []).includes(tag.value))
     .filter((s) => region.value === '全部' || (REGION_MAP[s.city] || '其他') === region.value)
     .filter((s) => rank.value === '全部' || (s.byRank[rank.value] || 0) > 0)
+    .filter((s) => discipline.value === '全部' || s.discs.has(discipline.value))
     .filter((s) => school.value === '全部' || s.name === school.value)
     .filter((s) => !q || normalize(s.name).includes(q) || normalize(s.city).includes(q))
 })
@@ -100,6 +132,7 @@ function reset() {
   query.value = ''
   rank.value = '全部'
   tag.value = '全部'
+  discipline.value = '全部'
   region.value = '全部'
   school.value = '全部'
   sortBy.value = '学校'
@@ -168,9 +201,10 @@ onMounted(() => { load(); window.addEventListener('keydown', onKeydown) })
 
   <main class="wrap">
     <section class="hero">
-      <div class="eyebrow">985 / 211 · 人工智能 · 计算机 · 电子信息</div>
-      <h1>把散落在各校官网的<em>教师与研究人员</em>，收进一个可检索的名录</h1>
+      <div class="eyebrow">985 / 211 · 数学 · 物理 · 化学 · 材料 · 机械 · 能源 · 计算机 · 电子信息</div>
+      <h1>把散落在各校官网的<em>理工科教师与研究人员</em>，收进一个可检索的名录</h1>
       <p>
+        覆盖数学、物理、化学、材料、机械、能源、计算机、电子信息等理工科院系。
         每条记录包含姓名、职称、研究方向与 ORCID，并附上院系官网的来源页面链接。
         数据来自各校院系官网「师资队伍」栏目；ORCID 由 ORCID 公开接口按「姓名 + 机构」匹配，并回到 ORCID 记录本体复核。
         信息会随官网变动，报考、套磁或合作前请以院系官网为准。
@@ -195,6 +229,12 @@ onMounted(() => { load(); window.addEventListener('keydown', onKeydown) })
         <label>学校层次</label>
         <button v-for="t in TAGS" :key="t" class="chip" type="button"
                 :aria-pressed="tag === t" @click="tag = t">{{ t }}</button>
+      </div>
+
+      <div class="filter-row">
+        <label>学科方向</label>
+        <button v-for="d in disciplines" :key="d" class="chip" type="button"
+                :aria-pressed="discipline === d" @click="discipline = d">{{ d }}</button>
       </div>
 
       <div class="filter-row">
@@ -279,6 +319,9 @@ onMounted(() => { load(); window.addEventListener('keydown', onKeydown) })
             <div class="badges">
               <span v-for="t in s.tags" :key="t" class="badge">{{ t }}</span>
             </div>
+            <div class="badges">
+              <span v-for="d in [...s.discs]" :key="d" class="badge">{{ d }}</span>
+            </div>
             <div class="dir">
               <template v-for="(n, r) in s.byRank" :key="r">{{ r }} {{ n }} · </template>
             </div>
@@ -309,7 +352,8 @@ onMounted(() => { load(); window.addEventListener('keydown', onKeydown) })
         <li><strong>研究方向</strong>：摘录自教师详情页中「研究方向 / 研究领域 / 研究兴趣」的原文，页面没写就留空，不做补写。</li>
         <li><strong>ORCID</strong>：优先取来源页面上的 ORCID；其余用 ORCID 公开检索接口按「姓名拼音 + 机构名」匹配，姓名与机构都要对得上，并<em>回到 ORCID 记录本体复核一次</em>，候选人唯一才回填。ORCID 一栏因此覆盖率不高，但它只是辅助线索，引用前请以本人 ORCID 主页为准。</li>
         <li v-if="meta">采集时间：{{ meta.generated_at }}；教师 {{ meta.faculty_count }} 条，覆盖 {{ meta.university_count }} 所高校，其中 {{ meta.with_title }} 条有职称、{{ meta.with_direction }} 条有研究方向、{{ meta.with_orcid }} 条有 ORCID。</li>
-        <li>未收录 ≠ 该院系没有这位老师：部分高校官网为纯前端渲染或无法访问，本次未纳入。信息可能滞后，请以院系官网最新公告为准。</li>
+        <li><strong>收录范围</strong>：理工科院系的在职教师与研究人员（数学、物理、化学、材料、机械、能源、计算机、电子信息等）。同一所高校可能收录多个院系，卡片上的院系以来源页面为准。</li>
+        <li>未收录 ≠ 该院系没有这位老师：部分高校官网为纯前端渲染、改版或无法访问，本次未纳入。信息可能滞后，请以院系官网最新公告为准。</li>
       </ul>
     </div>
   </footer>
