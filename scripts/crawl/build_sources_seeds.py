@@ -60,11 +60,13 @@ def main():
                 entry["pages"].append({"url": extra["url"], "hint": "", "extra": True})
         new_entries.append(entry)
 
-    # 去掉旧的、采不到数据的同校占位条目
+    # 按「学校 + 院系」替换（可重复执行：再跑一次结果不变），
+    # 并清掉旧的、采不到数据的同校占位条目（入口选错留下的空壳）。
+    new_keys = {(e["university"], e["school"]) for e in new_entries}
     drop_unis = {e["university"] for e in new_entries}
     kept = [e for e in sources
-            if not (e["university"] in drop_unis and not e.get("pages"))]
-    # 已有的中南大学空占位单独清理
+            if (e["university"], e["school"]) not in new_keys
+            and not (e["university"] in drop_unis and not e.get("pages"))]
     kept = [e for e in kept if not (e["university"] == "中南大学" and not e.get("pages"))]
 
     merged = kept + new_entries

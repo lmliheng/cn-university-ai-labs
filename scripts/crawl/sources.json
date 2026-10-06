@@ -2026,6 +2026,25 @@
   "entry": "https://energy.csu.edu.cn/szdw.htm"
  },
  {
+  "university": "中南大学",
+  "city": "长沙",
+  "tags": [
+   "985",
+   "211",
+   "双一流"
+  ],
+  "school": "地球科学与信息物理学院",
+  "root": "https://gip.csu.edu.cn/",
+  "pages": [
+   {
+    "url": "https://gip.csu.edu.cn/xygk/szdw1.htm",
+    "hint": ""
+   }
+  ],
+  "status": "ok",
+  "entry": "https://gip.csu.edu.cn/xygk/szdw1.htm"
+ },
+ {
   "university": "上海交通大学",
   "city": "上海",
   "tags": [

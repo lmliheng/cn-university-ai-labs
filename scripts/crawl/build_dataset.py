@@ -53,6 +53,8 @@ BAD_NAME = ["学院", "大学", "中心", "实验", "研究所", "研究院", "�
             "新闻", "会议", "讲座", "招聘", "下载", "字母", "师资", "名录", "人才", "党建",
             "学生", "联系", "关于", "简介", "分享", "搜索", "导航", "退休", "学者", "院士",
             "性别", "姓名", "职务", "学历", "学位", "邮箱", "电话", "地址", "导师", "系所",
+            "教师", "专任", "当前位置", "当前", "位置", "博士后", "区块链", "物联网",
+            "组合优化", "几何分析", "正高级", "副高级", "中初级",
             "学习", "挖掘", "隐私", "师德", "正文", "简报", "指南", "办事", "季度", "风采",
             "掠影", "映像", "相册", "视频", "成员", "概况", "链接", "平台", "基地", "系所",
             "详细", "详情", "查看", "点击", "展开", "收起", "上一页", "下一页",
@@ -89,12 +91,20 @@ def clean_direction(value):
         text = stripped
     # 正文里混进的页脚/导航：在这些标记处截断
     cut = len(text)
-    for marker in ("其他栏目", "语种切换", "首页 >", "首页>", "首页 首页", "中文 English", "首页 上页", "上页", "尾页"):
+    for marker in ("其他栏目", "语种切换", "首页 >", "首页>", "首页 首页", "中文 English",
+                   "首页 上页", "上页", "尾页", "扫一扫"):
         pos = text.find(marker)
         if 0 <= pos < cut:
             cut = pos
     text = text[:cut].strip(" >·`-")
     if not text or len(text) < 4 or DIR_NAV_ONLY.match(text):
+        return ""
+    # 只有英文小标题（如详情页的「Research Focus」）而没有内容的，视为空
+    if re.fullmatch(r"[A-Za-z][A-Za-z /&,\-]{0,39}", text):
+        return ""
+    # 结尾残留的分类导航词，如「…储热技术 其他」
+    text = re.sub(r"[\s；;，,]+(其他|全部|更多|展开)$", "", text).strip()
+    if not text or len(text) < 4:
         return ""
     return text
 
@@ -140,11 +150,13 @@ def main():
             "note": clean(p.get("orcid_note")),
         })
 
-    # 姓名横跨多校 → 站点栏目词
+    # 姓名横跨很多学校 → 站点栏目词（兜底；常见真名如「张伟」也可能横跨 3~5 所，
+    # 阈值放高以免误伤，真正高频的栏目词由上面的 BAD_NAME 列表负责）
+    JUNK_SPREAD = 6
     by_name = collections.defaultdict(set)
     for r in staged:
         by_name[r["name"]].add(r["university"])
-    junk_names = {n for n, unis in by_name.items() if len(unis) >= 3}
+    junk_names = {n for n, unis in by_name.items() if len(unis) >= JUNK_SPREAD}
 
     # 同校内去重
     best = {}

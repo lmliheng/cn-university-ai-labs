@@ -9,6 +9,7 @@ SEEDS = [
     ("中南大学", "化学化工学院", "https://ccce.csu.edu.cn/"),
     ("中南大学", "材料科学与工程学院", "https://smse.csu.edu.cn/"),
     ("中南大学", "能源科学与工程学院", "https://energy.csu.edu.cn/"),
+    ("中南大学", "地球科学与信息物理学院", "https://gip.csu.edu.cn/"),
     # —— 上海交通大学 ——
     ("上海交通大学", "数学科学学院", "https://math.sjtu.edu.cn/"),
     ("上海交通大学", "化学化工学院", "https://scce.sjtu.edu.cn/"),
