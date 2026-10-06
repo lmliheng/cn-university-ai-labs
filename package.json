@@ -1,16 +1,16 @@
 {
-  "name": "cn-univ-ai-labs",
+  "name": "cn-university-faculty",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "211/985 高校人工智能·计算机·电子信息课题组索引（Vue 3 + Vite）",
+  "description": "211/985 高校人工智能·计算机·电子信息院系教师名录（姓名 / 职称 / 研究方向 / ORCID + 来源链接），Vue 3 + Vite",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "serve": "node server.js",
     "verify": "node test/verify.mjs",
-    "csv": "python3 scripts/export_csv.py"
+    "dataset": "python3 scripts/crawl/build_dataset.py"
   },
   "dependencies": {
     "vue": "^3.5.43"

@@ -143,6 +143,12 @@ select {
   border: 1px solid var(--border); color: var(--fg-muted);
 }
 .badge.field { background: var(--brand-50); color: var(--brand-700); border-color: transparent; font-weight: 500; }
+.badge.rank { background: var(--brand-50); color: var(--brand-700); border-color: transparent; font-weight: 500; flex: none; }
+
+/* ---------- 教师卡片 ---------- */
+.card.teacher .name-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.card.teacher .dir { font-size: 13px; color: var(--fg-muted); overflow-wrap: anywhere; }
+.card .links a.orcid { font-variant-numeric: tabular-nums; }
 
 .school-card { grid-column: 1 / -1; }
 @media (min-width: 640px) { .school-card { grid-column: auto; } }
@@ -156,6 +162,8 @@ select {
 }
 .fac-list .row { display: flex; justify-content: space-between; gap: 10px; font-size: 13px; align-items: baseline; }
 .fac-list .row span { color: var(--fg-muted); }
+.fac-list .row em.muted { font-style: normal; color: var(--fg-faint); }
+.fac-list .row b { font-weight: 500; color: var(--fg); flex: none; }
 
 /* ---------- states ---------- */
 .state { border: 1px solid var(--border); border-radius: var(--radius-card); padding: 28px; text-align: center; color: var(--fg-muted); }

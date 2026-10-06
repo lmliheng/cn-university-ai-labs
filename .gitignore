@@ -2,3 +2,13 @@ node_modules/
 dist/
 .DS_Store
 *.log
+
+# 采集管线的中间产物与缓存（脚本会重新生成）
+scripts/crawl/cache/
+scripts/crawl/rendered/
+scripts/crawl/openalex/
+scripts/crawl/orcid_registry/
+scripts/crawl/people_detail.json
+scripts/crawl/people_final.json
+scripts/crawl/discover.json
+scripts/crawl/weak_pages.txt
